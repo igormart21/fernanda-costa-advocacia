@@ -67,6 +67,36 @@
   </div>
 </section>
 
+<!-- CONTACT FORM -->
+<section id="contact">
+  <div class="contact-container">
+    <div class="contact-left reveal-left">
+      <div class="section-label">Atendimento</div>
+      <h2 class="section-title">Fale com a nossa <em>Equipe</em></h2>
+      <p class="contact-desc">Preencha o formulário abaixo com os seus dados. Avaliaremos o seu caso rapidamente e entraremos em contato para uma orientação especializada.</p>
+      
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-group">
+          <input type="text" name="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Seu email" required>
+        </div>
+        <div class="form-group">
+          <input type="tel" name="telefone" placeholder="DDD + Telefone" required>
+        </div>
+        <div class="form-group">
+          <textarea name="mensagem" placeholder="Descreva brevemente o seu caso" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; text-align: center;">QUERO UMA AVALIAÇÃO!</button>
+      </form>
+    </div>
+    <div class="contact-right reveal-right">
+      <img src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" class="contact-img" loading="lazy">
+    </div>
+  </div>
+</section>
+
 <!-- VIDEO -->
 <section id="video">
   <div class="video-header">
@@ -75,7 +105,10 @@
     <p class="reveal stagger-2" style="color:var(--text);font-size:.95rem;line-height:1.8;font-weight:300;margin-top:1rem">Uma advogada que une técnica jurídica de alto nivel com atendimento verdadeiramente humanizado.</p>
   </div>
   <div class="video-wrapper reveal">
-    <img class="video-thumb" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" style="filter: brightness(1);">
+    <video class="video-thumb" controls poster="assets/imagemdecapa/Fernada.jpeg" style="filter: brightness(1); border-radius: 4px;">
+      <source src="video%20fernanda.mp4" type="video/mp4">
+      Seu navegador não suporta a tag de vídeo.
+    </video>
   </div>
 </section>
 
@@ -208,6 +241,8 @@
     </div>
   </div>
 </section>
+
+
 
 <!-- FINAL CTA -->
 <section id="cta-final">
