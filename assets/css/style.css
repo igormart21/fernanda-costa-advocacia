@@ -117,9 +117,9 @@ section{position:relative;overflow:hidden}
 .btn-whatsapp:hover{box-shadow:0 15px 50px rgba(34,197,94,.3);transform:translateY(-2px)}
 /* CONTACT FORM */
 #contact{padding:10rem 8%;background:var(--graphite2)}
-.contact-container{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.contact-container{max-width:700px;margin:0 auto;text-align:center}
 .contact-desc{color:var(--text);font-size:.95rem;line-height:1.8;font-weight:300;margin-bottom:2.5rem}
-.contact-form{display:flex;flex-direction:column;gap:1.2rem}
+.contact-form{display:flex;flex-direction:column;gap:1.2rem;text-align:left}
 .form-group input, .form-group textarea{width:100%;padding:16px 20px;background:var(--black);border:1px solid rgba(201,168,76,.2);border-radius:4px;color:var(--ivory);font-family:var(--font-sans);font-size:.9rem;outline:none;transition:border-color .3s}
 .form-group input:focus, .form-group textarea:focus{border-color:var(--gold)}
 .form-group input::placeholder, .form-group textarea::placeholder{color:var(--muted)}
@@ -173,9 +173,7 @@ footer{padding:4rem 8%;background:var(--graphite);border-top:1px solid rgba(201,
 .areas-grid{grid-template-columns:1fr;}
 .nav-links,.nav-cta{display:none;}
 .hamburger{display:flex;}
-.contact-container{grid-template-columns:1fr;gap:3rem}
-.contact-right{order:-1}
-.contact-img{max-height:400px;width:auto;margin:0 auto}
+
 }
 @media(max-width:640px){
 .hero-headline{font-size: 2.2rem;}
