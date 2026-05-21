@@ -9,6 +9,27 @@ html{scroll-behavior:smooth;font-size:16px}
 body{background:var(--black);color:var(--ivory);font-family:var(--font-sans);overflow-x:hidden;line-height:1.6}
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
+
+/* BACKGROUND ICONS ANIMADOS */
+.contact-bg-icons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.contact-bg-icons i{
+  position:absolute;
+  color:rgba(198,161,91,0.10);
+  animation-name:floatIcon;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+  animation-direction:alternate;
+  filter:blur(0.5px);
+  text-shadow:0 0 20px rgba(198,161,91,0.15);
+}
+@keyframes floatIcon{
+  0%  {transform:translateY(0px)   rotate(0deg);   opacity:.07;}
+  25% {transform:translateY(-18px) rotate(3deg);   opacity:.12;}
+  50% {transform:translateY(-8px)  rotate(-2deg);  opacity:.09;}
+  75% {transform:translateY(-22px) rotate(4deg);   opacity:.13;}
+  100%{transform:translateY(-5px)  rotate(-1deg);  opacity:.08;}
+}
+
 /* NAV */
 #navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:10px 5%;display:flex;align-items:center;transition:transform .4s ease, background .4s ease, backdrop-filter .4s ease, padding .4s ease;backdrop-filter:blur(0px)}
 #navbar.scrolled{background:rgba(8,8,8,.88);backdrop-filter:blur(18px);padding:14px 5%;border-bottom:1px solid rgba(201,168,76,.12)}
