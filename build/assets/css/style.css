@@ -10,7 +10,18 @@ body{background:var(--black);color:var(--ivory);font-family:var(--font-sans);ove
 img{max-width:100%;height:auto;display:block}
 a{text-decoration:none;color:inherit}
 
-/* BACKGROUND ICONS ANIMADOS */
+/* BACKGROUND ICONS ANIMADOS — GLOBAL */
+.section-bg-icons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
+.section-bg-icons i{
+  position:absolute;
+  color:rgba(198,161,91,0.28);
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:infinite;
+  animation-direction:alternate;
+  filter:blur(0.3px);
+  text-shadow:0 0 30px rgba(198,161,91,0.35);
+}
+/* Manter compatibilidade com a seção contato */
 .contact-bg-icons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
 .contact-bg-icons i{
   position:absolute;
@@ -28,6 +39,18 @@ a{text-decoration:none;color:inherit}
   50% {transform:translateY(-8px)  rotate(-2deg);  opacity:.25;}
   75% {transform:translateY(-22px) rotate(4deg);   opacity:.35;}
   100%{transform:translateY(-5px)  rotate(-1deg);  opacity:.22;}
+}
+@keyframes floatIconB{
+  0%  {transform:translateY(0px)   rotate(0deg)   scale(1);    opacity:.18;}
+  33% {transform:translateY(-25px) rotate(-4deg)  scale(1.04); opacity:.30;}
+  66% {transform:translateY(-10px) rotate(5deg)   scale(.97);  opacity:.24;}
+  100%{transform:translateY(-20px) rotate(-2deg)  scale(1.02); opacity:.28;}
+}
+@keyframes floatIconC{
+  0%  {transform:translate(0,0)       rotate(0deg);  opacity:.15;}
+  40% {transform:translate(10px,-15px) rotate(6deg);  opacity:.28;}
+  70% {transform:translate(-8px,-22px) rotate(-3deg); opacity:.22;}
+  100%{transform:translate(5px,-10px)  rotate(4deg);  opacity:.20;}
 }
 
 /* NAV */
