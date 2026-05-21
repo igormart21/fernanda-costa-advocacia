@@ -218,7 +218,7 @@ a{text-decoration:none;color:inherit}
 .video-sub{font-size:.92rem;color:var(--muted-light);font-weight:300;margin-bottom:3rem}
 .video-wrap{position:relative;border:1px solid rgba(200,169,107,.18);box-shadow:0 0 80px rgba(200,169,107,.08);overflow:hidden}
 .video-wrap video{width:100%;height:auto;display:block;filter:brightness(.95)}
-.video-thumbnail{position:absolute;inset:0;z-index:3;transition:opacity .5s;background:#111}
+.video-thumbnail{position:absolute;inset:0;z-index:3;transition:opacity .4s,z-index 0s .4s;background:#111}
 .video-thumb-img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block;filter:brightness(.92) contrast(1.05)}
 .video-poster-overlay{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(to right,#111 0%,rgba(17,17,17,.9) 14%,rgba(17,17,17,.2) 30%,transparent 44%,transparent 56%,rgba(17,17,17,.2) 70%,rgba(17,17,17,.9) 86%,#111 100%),linear-gradient(to bottom,#111 0%,rgba(17,17,17,.6) 10%,transparent 22%,transparent 78%,rgba(17,17,17,.6) 90%,#111 100%)}
 .video-frame-corner{position:absolute;width:24px;height:24px;border-color:var(--dourado);border-style:solid;pointer-events:none}
@@ -998,47 +998,56 @@ document.getElementById('contact-form')?.addEventListener('submit', e => {
   window.open(`https://api.whatsapp.com/send?phone=5521973184161&text=${encodeURIComponent(txt)}`, '_blank');
 });
 
-// Botão de play com áudio
+// Vídeo — play, pause, auto-pause ao sair da tela
 const heroVideo = document.getElementById('hero-video');
-const playBtn = document.getElementById('video-play-btn');
+const playBtn   = document.getElementById('video-play-btn');
 const videoThumb = document.getElementById('video-thumbnail');
 
 function hideThumb() {
-  if (videoThumb) { videoThumb.style.opacity = '0'; videoThumb.style.pointerEvents = 'none'; }
+  if (!videoThumb) return;
+  videoThumb.style.opacity = '0';
+  videoThumb.style.pointerEvents = 'none';
+  videoThumb.style.zIndex = '-1';
 }
 function showThumb() {
-  if (videoThumb) { videoThumb.style.opacity = '1'; videoThumb.style.pointerEvents = 'auto'; }
+  if (!videoThumb) return;
+  videoThumb.style.opacity = '1';
+  videoThumb.style.pointerEvents = 'auto';
+  videoThumb.style.zIndex = '3';
+}
+
+function startVideo() {
+  heroVideo.controls = true;
+  heroVideo.muted = false;
+  playBtn.classList.add('hidden');
+  hideThumb();
+  const p = heroVideo.play();
+  if (p !== undefined) {
+    p.catch(() => {
+      heroVideo.muted = true;
+      heroVideo.play().then(() => { heroVideo.muted = false; }).catch(() => {});
+    });
+  }
 }
 
 if (heroVideo && playBtn) {
-  playBtn.addEventListener('click', () => {
-    heroVideo.controls = true;
-    heroVideo.muted = false;
-    playBtn.classList.add('hidden');
-    hideThumb();
-    const p = heroVideo.play();
-    if (p !== undefined) {
-      p.catch(() => {
-        // iOS pode bloquear áudio — tenta muted primeiro
-        heroVideo.muted = true;
-        heroVideo.play().then(() => { heroVideo.muted = false; }).catch(() => {});
-      });
-    }
-  });
+  playBtn.addEventListener('click', startVideo);
+
   heroVideo.addEventListener('ended', () => {
     playBtn.classList.remove('hidden');
     heroVideo.controls = false;
     showThumb();
   });
-  // Toque direto no vídeo (mobile) depois que thumbnail some
-  heroVideo.addEventListener('click', () => {
-    if (!heroVideo.paused) return;
-    heroVideo.controls = true;
-    heroVideo.muted = false;
-    playBtn.classList.add('hidden');
-    hideThumb();
-    heroVideo.play().catch(() => {});
-  });
+
+  // Pausar automaticamente ao sair da viewport
+  const videoObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting && !heroVideo.paused) {
+        heroVideo.pause();
+      }
+    });
+  }, { threshold: 0.2 });
+  videoObserver.observe(heroVideo);
 }
 
 // Carrossel de depoimentos
