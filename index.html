@@ -3,267 +3,971 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Fernanda Costa Advocacia - Defesa jurídica estratégica com atendimento humanizado. Especialistas em Direito Trabalhista e Direito do Consumidor em todo o Brasil.">
-<meta name="keywords" content="advogada trabalhista, direito do consumidor, Fernanda Costa, advocacia, Rio de Janeiro">
+<meta name="description" content="Fernanda Costa Advocacia — Direito Trabalhista e Direito do Consumidor. Defesa jurídica estratégica com atendimento humanizado em todo o Brasil.">
+<meta name="keywords" content="advogada trabalhista, direito do consumidor, Fernanda Costa, advocacia, OAB, Rio de Janeiro">
 <meta property="og:title" content="Fernanda Costa Advocacia">
 <meta property="og:description" content="Defesa jurídica estratégica com atendimento humanizado.">
 <title>Fernanda Costa Advocacia | Direito Trabalhista e do Consumidor</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & ROOT ─────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cafe:#4A2E22;
+  --cafe-dark:#2A1A10;
+  --cafe-mid:#6B3E2A;
+  --caramelo:#B87333;
+  --nude:#E7D7C9;
+  --nude-soft:#F0E6DC;
+  --cream:#F8F1EA;
+  --dourado:#C8A96B;
+  --dourado-light:#D9BC80;
+  --dark-text:#2A1A10;
+  --mid-text:#4A2E22;
+  --soft-text:#7A5543;
+  --light-text:#E7D7C9;
+  --muted-light:#C4A89A;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--cream);color:var(--dark-text);font-family:var(--sans);overflow-x:hidden;line-height:1.6}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+
+/* ── UTILITY ──────────────────────────────────── */
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dourado);display:inline-flex;align-items:center;gap:.9rem;margin-bottom:1.4rem}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--dourado);flex-shrink:0}
+.section-title{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;line-height:1.12}
+.section-title em{font-style:italic;color:var(--dourado)}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--dourado);color:var(--cafe-dark);padding:14px 32px;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;transition:all .35s;position:relative;overflow:hidden}
+.btn-primary::after{content:'';position:absolute;inset:0;background:var(--caramelo);opacity:0;transition:opacity .35s}
+.btn-primary:hover::after{opacity:1}
+.btn-primary span,.btn-primary svg{position:relative;z-index:1}
+.btn-ghost{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--light-text);padding:14px 32px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(200,169,107,.35);transition:all .35s}
+.btn-ghost:hover{border-color:var(--dourado);color:var(--dourado)}
+.btn-dark{display:inline-flex;align-items:center;gap:.6rem;background:var(--cafe);color:var(--nude);padding:14px 32px;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;border:none;transition:all .35s}
+.btn-dark:hover{background:var(--cafe-mid);transform:translateY(-2px)}
+
+/* ── NAVBAR ───────────────────────────────────── */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;transition:all .4s}
+#navbar.scrolled{background:rgba(42,26,16,.94);backdrop-filter:blur(20px);padding:12px 5%;border-bottom:1px solid rgba(200,169,107,.12)}
+#navbar.hidden{transform:translateY(-100%)}
+.nav-logo{display:flex;align-items:center;gap:.7rem}
+.nav-logo img{height:54px;width:auto;filter:brightness(0) invert(1)}
+.nav-logo-text{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:var(--nude);letter-spacing:.04em;line-height:1}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(231,215,201,.7);transition:color .3s}
+.nav-links a:hover{color:var(--dourado)}
+.nav-cta{background:var(--dourado);color:var(--cafe-dark);padding:10px 24px;font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all .3s}
+.nav-cta:hover{background:var(--dourado-light)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{width:24px;height:1.5px;background:var(--nude);display:block;transition:all .3s}
+.mobile-nav{display:none;position:fixed;inset:0;background:rgba(42,26,16,.98);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem;backdrop-filter:blur(24px)}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--nude);transition:color .3s}
+.mobile-nav a:hover{color:var(--dourado)}
+.mobile-close{position:absolute;top:1.5rem;right:5%;font-size:1.8rem;color:var(--dourado);cursor:pointer;background:none;border:none;z-index:1101;padding:.5rem;line-height:1}
+
+/* ── HERO ─────────────────────────────────────── */
+#hero{position:relative;min-height:100vh;background:var(--cafe-dark);overflow:hidden;display:flex;align-items:center}
+.hero-noise{position:absolute;inset:0;opacity:.04;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px}
+.hero-gradient{position:absolute;inset:0;background:radial-gradient(ellipse 80% 80% at 70% 50%,rgba(74,46,34,.6) 0%,transparent 70%),radial-gradient(ellipse 50% 70% at 20% 80%,rgba(184,115,51,.08) 0%,transparent 60%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto;grid-template-areas:"text visual" "btns visual" "stats visual";gap:0 4rem;padding:10rem 8% 6rem;width:100%;max-width:1400px;margin:0 auto;align-items:start}
+.hero-text{grid-area:text;display:flex;flex-direction:column}
+.hero-visual{grid-area:visual;position:relative;display:flex;justify-content:center;align-items:flex-end}
+.hero-btns{grid-area:btns;display:flex;gap:1rem;flex-wrap:wrap;padding-bottom:3rem}
+.hero-stats{grid-area:stats;display:flex;gap:2.5rem;padding-top:2.5rem;border-top:1px solid rgba(200,169,107,.15)}
+.hero-h1{font-family:var(--serif);font-size:clamp(2.4rem,5vw,5rem);font-weight:300;line-height:1.08;color:var(--nude);margin-bottom:1.6rem}
+.hero-h1 em{font-style:italic;color:var(--dourado);display:block}
+.hero-sub{font-size:.95rem;color:rgba(231,215,201,.75);line-height:1.8;max-width:480px;margin-bottom:2rem;font-weight:300}
+.hero-stat strong{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:500;color:var(--dourado);line-height:1}
+.hero-stat span{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,168,154,.7);margin-top:.25rem;display:block}
+.hero-photo-wrap{position:relative;width:100%;max-width:460px}
+.hero-photo-frame{position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:1px solid rgba(200,169,107,.25);z-index:0;pointer-events:none}
+.hero-photo-wrap img{position:relative;z-index:1;width:100%;height:580px;object-fit:cover;object-position:top center;filter:brightness(.9) contrast(1.05)}
+.hero-badge{position:absolute;z-index:3;background:var(--dourado);padding:1rem 1.4rem;min-width:140px}
+.hero-badge strong{display:block;font-family:var(--serif);font-size:2rem;font-weight:500;color:var(--cafe-dark);line-height:1}
+.hero-badge span{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cafe-mid)}
+.hero-badge-2{top:80px;left:-30px;background:var(--cafe-mid)}
+.hero-badge-2 strong{color:var(--dourado)}
+.hero-badge-2 span{color:var(--muted-light)}
+.hero-oab{position:absolute;bottom:20px;left:-10px;z-index:3;background:rgba(42,26,16,.85);backdrop-filter:blur(12px);border:1px solid rgba(200,169,107,.2);padding:.7rem 1.2rem;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-light)}
+
+/* ── QUOTE STRIP ──────────────────────────────── */
+.quote-strip{background:var(--caramelo);padding:2.6rem 8%;display:flex;align-items:center;justify-content:center;gap:2rem;overflow:hidden}
+.quote-strip blockquote{font-family:var(--serif);font-size:clamp(1.3rem,2.5vw,2rem);font-style:italic;font-weight:300;color:#fff;text-align:center;max-width:800px;line-height:1.4}
+.quote-strip blockquote strong{font-weight:500;font-style:normal}
+
+/* ── SOBRE ────────────────────────────────────── */
+#sobre{padding:7rem 0;background:var(--cream);overflow:hidden}
+.sobre-inner{display:grid;grid-template-columns:.95fr 1.05fr;max-width:1300px;margin:0 auto;padding:0 8%;gap:6rem;align-items:center}
+.sobre-photo-col{position:relative}
+.sobre-photo-bg{position:absolute;top:-30px;left:-30px;width:80%;height:80%;background:var(--nude);z-index:0}
+.sobre-photo-img{position:relative;z-index:1;width:100%;height:580px;object-fit:cover;object-position:top center;filter:brightness(.92) contrast(1.08)}
+.sobre-accent-line{position:absolute;right:-20px;top:60px;width:4px;height:60%;background:linear-gradient(180deg,transparent,var(--dourado),transparent);z-index:2}
+.sobre-content{display:flex;flex-direction:column}
+.sobre-content .section-title{margin-bottom:1.4rem;color:var(--cafe-dark)}
+.sobre-bio{font-size:.95rem;color:var(--soft-text);line-height:1.85;font-weight:300;margin-bottom:.9rem}
+.sobre-credentials{margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(74,46,34,.12);display:flex;flex-direction:column;gap:.7rem}
+.credential{display:flex;align-items:center;gap:1rem;font-size:.85rem;color:var(--mid-text)}
+.credential::before{content:'';width:20px;height:1px;background:var(--dourado);flex-shrink:0}
+.sobre-cta{margin-top:2rem}
+
+/* ── COMO FUNCIONA ────────────────────────────── */
+#processo{padding:7rem 8%;background:var(--cafe);position:relative;overflow:hidden}
+#processo::before{content:'PROCESSO';position:absolute;right:-2%;top:50%;transform:translateY(-50%);font-family:var(--serif);font-size:18vw;font-weight:700;color:rgba(200,169,107,.04);line-height:1;pointer-events:none;white-space:nowrap}
+.processo-inner{max-width:1200px;margin:0 auto}
+.processo-inner .section-title{color:var(--nude);margin-bottom:.6rem}
+.processo-sub{font-size:.92rem;color:var(--muted-light);margin-bottom:4rem;font-weight:300}
+.processo-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.processo-step{background:rgba(255,255,255,.03);border:1px solid rgba(200,169,107,.1);padding:2.8rem 2.4rem;position:relative;overflow:hidden;transition:all .4s}
+.processo-step:hover{background:rgba(200,169,107,.06);border-color:rgba(200,169,107,.25)}
+.step-number{font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(200,169,107,.12);line-height:1;margin-bottom:.8rem;transition:color .4s}
+.processo-step:hover .step-number{color:rgba(200,169,107,.25)}
+.step-icon{width:40px;height:40px;border:1px solid rgba(200,169,107,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--dourado)}
+.processo-step h3{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--nude);margin-bottom:.7rem}
+.processo-step p{font-size:.85rem;color:var(--muted-light);line-height:1.75;font-weight:300}
+.step-connector{display:none}
+
+/* ── ÁREAS ────────────────────────────────────── */
+#areas{padding:7rem 8%;background:var(--nude-soft)}
+#areas .areas-inner{max-width:1300px;margin:0 auto}
+#areas .section-title{color:var(--cafe-dark);margin-bottom:.6rem}
+#areas .areas-intro{font-size:.92rem;color:var(--soft-text);margin-bottom:4rem;font-weight:300}
+.areas-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.area-card{background:var(--cream);border:1px solid rgba(74,46,34,.1);padding:3rem;position:relative;overflow:hidden;transition:all .4s;display:flex;flex-direction:column}
+.area-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(180deg,var(--dourado),var(--caramelo));transform:scaleY(0);transform-origin:bottom;transition:transform .5s}
+.area-card:hover{box-shadow:0 20px 60px rgba(74,46,34,.12);transform:translateY(-4px)}
+.area-card:hover::before{transform:scaleY(1)}
+.area-num{font-family:var(--serif);font-size:4rem;font-weight:700;color:rgba(200,169,107,.15);line-height:1;margin-bottom:.8rem}
+.area-card h3{font-family:var(--serif);font-size:1.8rem;font-weight:400;color:var(--cafe-dark);margin-bottom:.8rem}
+.area-card > p{font-size:.88rem;color:var(--soft-text);line-height:1.75;margin-bottom:1.6rem;font-weight:300}
+.area-subitems{display:flex;flex-direction:column;gap:.5rem;margin-top:auto}
+.area-subitem{display:flex;align-items:center;gap:.8rem;font-size:.82rem;color:var(--mid-text)}
+.area-subitem::before{content:'';width:16px;height:1px;background:var(--dourado);flex-shrink:0}
+
+/* ── NÚMEROS ──────────────────────────────────── */
+.numeros{background:var(--cafe-dark);padding:4rem 8%;border-top:1px solid rgba(200,169,107,.1);border-bottom:1px solid rgba(200,169,107,.1)}
+.numeros-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;text-align:center}
+.numero-item{position:relative;padding:1rem}
+.numero-item + .numero-item::before{content:'';position:absolute;left:0;top:20%;height:60%;width:1px;background:rgba(200,169,107,.12)}
+.numero-item strong{display:block;font-family:var(--serif);font-size:3.2rem;font-weight:500;color:var(--dourado);line-height:1}
+.numero-item span{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-light);display:block;margin-top:.4rem}
+
+/* ── DIFERENCIAIS ─────────────────────────────── */
+#diferenciais{padding:7rem 8%;background:var(--cream)}
+.dif-inner{max-width:1300px;margin:0 auto}
+.dif-inner .section-title{color:var(--cafe-dark);margin-bottom:.6rem}
+.dif-sub{font-size:.92rem;color:var(--soft-text);margin-bottom:3.5rem;font-weight:300}
+.dif-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.dif-card{background:var(--nude-soft);border:1px solid rgba(74,46,34,.08);padding:2.2rem;transition:all .4s;position:relative;overflow:hidden}
+.dif-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--dourado),var(--caramelo));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.dif-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(74,46,34,.1)}
+.dif-card:hover::after{transform:scaleX(1)}
+.dif-icon{width:44px;height:44px;border:1px solid rgba(200,169,107,.4);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;color:var(--dourado)}
+.dif-card h4{font-family:var(--serif);font-size:1.2rem;font-weight:400;color:var(--cafe-dark);margin-bottom:.6rem}
+.dif-card p{font-size:.83rem;color:var(--soft-text);line-height:1.7;font-weight:300}
+
+/* ── DEPOIMENTOS ──────────────────────────────── */
+#depoimentos{padding:7rem 8%;background:var(--nude)}
+.dep-inner{max-width:1300px;margin:0 auto}
+.dep-inner .section-title{color:var(--cafe-dark);margin-bottom:.6rem}
+.dep-sub{font-size:.92rem;color:var(--soft-text);margin-bottom:3.5rem;font-weight:300}
+.dep-carousel{position:relative;overflow:hidden}
+.dep-track{display:flex;gap:1.5rem;transition:transform .45s cubic-bezier(.25,.46,.45,.94)}
+.dep-card{background:var(--cream);border:1px solid rgba(74,46,34,.1);padding:2.2rem;position:relative;transition:all .35s;flex:0 0 calc(33.333% - 1rem);min-width:0}
+.dep-card:hover{box-shadow:0 16px 48px rgba(74,46,34,.12);transform:translateY(-3px)}
+.dep-quote-mark{font-family:var(--serif);font-size:4.5rem;line-height:.7;color:var(--dourado);opacity:.3;margin-bottom:.6rem}
+.stars{color:var(--caramelo);font-size:.82rem;letter-spacing:.1em;margin-bottom:.8rem}
+.dep-text{font-size:.88rem;color:var(--soft-text);line-height:1.75;font-style:italic;font-weight:300;margin-bottom:1.2rem}
+.dep-author{display:flex;align-items:center;gap:.9rem;padding-top:1rem;border-top:1px solid rgba(74,46,34,.08)}
+.dep-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cafe-mid),var(--caramelo));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--cream);flex-shrink:0}
+.dep-name{font-size:.82rem;color:var(--cafe-dark);font-weight:500}
+.dep-area{font-size:.72rem;color:var(--soft-text);margin-top:.1rem}
+.dep-dots{display:flex;justify-content:center;gap:.6rem;margin-top:2rem}
+.dep-dot{width:8px;height:8px;border-radius:50%;background:rgba(74,46,34,.2);border:none;cursor:pointer;transition:all .3s;padding:0}
+.dep-dot.active{background:var(--dourado);transform:scale(1.2)}
+
+/* ── VÍDEO ────────────────────────────────────── */
+#video{padding:7rem 8%;background:var(--cafe);text-align:center;position:relative;overflow:hidden}
+#video::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50% 50%,rgba(200,169,107,.08) 0%,transparent 70%)}
+.video-inner{position:relative;z-index:1;max-width:900px;margin:0 auto}
+.video-inner .section-title{color:var(--nude);margin-bottom:.6rem}
+.video-sub{font-size:.92rem;color:var(--muted-light);font-weight:300;margin-bottom:3rem}
+.video-wrap{position:relative;border:1px solid rgba(200,169,107,.18);box-shadow:0 0 80px rgba(200,169,107,.08)}
+.video-wrap video{width:100%;height:auto;display:block;filter:brightness(.95)}
+.video-frame-corner{position:absolute;width:24px;height:24px;border-color:var(--dourado);border-style:solid;pointer-events:none}
+.video-play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:opacity .3s}
+.video-play-btn.hidden{opacity:0;pointer-events:none}
+.video-play-icon{width:80px;height:80px;border-radius:50%;background:rgba(200,169,107,.15);border:2px solid var(--dourado);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px);transition:all .3s;padding-left:4px}
+.video-play-btn:hover .video-play-icon{background:rgba(200,169,107,.35);transform:scale(1.08);box-shadow:0 0 40px rgba(200,169,107,.3)}
+.vfc-tl{top:-1px;left:-1px;border-width:2px 0 0 2px}
+.vfc-tr{top:-1px;right:-1px;border-width:2px 2px 0 0}
+.vfc-bl{bottom:-1px;left:-1px;border-width:0 0 2px 2px}
+.vfc-br{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
+
+/* ── FAQ ──────────────────────────────────────── */
+#faq{padding:7rem 8%;background:var(--cream)}
+.faq-inner{max-width:820px;margin:0 auto}
+.faq-inner .section-title{color:var(--cafe-dark);margin-bottom:.6rem}
+.faq-sub{font-size:.92rem;color:var(--soft-text);margin-bottom:3rem;font-weight:300}
+.faq-list{display:flex;flex-direction:column;gap:.8rem}
+.faq-item{border:1px solid rgba(74,46,34,.1);background:var(--nude-soft)}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;padding:1.4rem 1.8rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;text-align:left;font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--cafe-dark);transition:color .3s}
+.faq-q:hover{color:var(--caramelo)}
+.faq-icon{width:24px;height:24px;border:1px solid rgba(200,169,107,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--dourado);transition:all .3s}
+.faq-item.open .faq-icon{background:var(--dourado);color:var(--cafe-dark);transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding:.2rem 1.8rem 1.4rem;font-size:.88rem;color:var(--soft-text);line-height:1.8;font-weight:300;border-top:1px solid rgba(74,46,34,.08)}
+
+/* ── CONTATO ──────────────────────────────────── */
+#contato{padding:7rem 8%;background:var(--cafe-dark);position:relative;overflow:hidden}
+#contato::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 30% 50%,rgba(200,169,107,.06) 0%,transparent 65%)}
+.contato-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr .8fr 1.1fr;gap:4rem;max-width:1300px;margin:0 auto;align-items:end}
+.contato-photo{position:relative;align-self:end;background:transparent;border:none;overflow:visible}
+.contato-photo img{width:100%;max-height:520px;object-fit:contain;object-position:bottom center;display:block;filter:drop-shadow(0 0 30px rgba(200,169,107,.12)) brightness(.82);mask-image:linear-gradient(to bottom,black 45%,rgba(0,0,0,.55) 75%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,black 45%,rgba(0,0,0,.55) 75%,transparent 100%)}
+.contato-info .section-title{color:var(--nude);margin-bottom:.8rem}
+.contato-desc{font-size:.92rem;color:var(--muted-light);line-height:1.85;margin-bottom:2.5rem;font-weight:300}
+.contato-items{display:flex;flex-direction:column;gap:1.2rem}
+.contato-item{display:flex;align-items:center;gap:1rem}
+.contato-item-icon{width:40px;height:40px;border:1px solid rgba(200,169,107,.25);display:flex;align-items:center;justify-content:center;color:var(--dourado);flex-shrink:0}
+.contato-item-text strong{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dourado);margin-bottom:.2rem}
+.contato-item-text span{font-size:.88rem;color:var(--muted-light)}
+.contato-social{margin-top:2rem;display:flex;gap:1rem}
+.social-btn{width:40px;height:40px;border:1px solid rgba(200,169,107,.25);display:flex;align-items:center;justify-content:center;color:var(--muted-light);transition:all .3s}
+.social-btn:hover{border-color:var(--dourado);color:var(--dourado)}
+.contato-form-col{background:rgba(255,255,255,.03);border:1px solid rgba(200,169,107,.1);padding:2.8rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.form-field{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
+.form-field label{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dourado)}
+.form-field input,.form-field textarea,.form-field select{background:rgba(255,255,255,.04);border:1px solid rgba(200,169,107,.15);padding:13px 16px;color:var(--nude);font-family:var(--sans);font-size:.88rem;outline:none;transition:border-color .3s;width:100%}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{border-color:rgba(200,169,107,.45)}
+.form-field input::placeholder,.form-field textarea::placeholder{color:rgba(196,168,154,.4)}
+.form-field textarea{resize:vertical;min-height:110px}
+.form-field select{color:rgba(231,215,201,.7);-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C8A96B' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-field select option{background:var(--cafe-dark);color:var(--nude)}
+.form-submit{width:100%;padding:15px;background:var(--dourado);color:var(--cafe-dark);font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:none;cursor:pointer;transition:all .35s;display:flex;align-items:center;justify-content:center;gap:.7rem;margin-top:.5rem}
+.form-submit:hover{background:var(--dourado-light);transform:translateY(-1px)}
+
+/* ── FOOTER ───────────────────────────────────── */
+footer{background:var(--cafe-dark);border-top:1px solid rgba(200,169,107,.1);padding:3rem 8% 2rem}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:3rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(200,169,107,.08)}
+.footer-brand p{font-size:.83rem;color:var(--muted-light);line-height:1.7;font-weight:300;margin-top:.8rem;max-width:260px}
+.footer-logo-text{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--nude);letter-spacing:.04em}
+.footer-logo-sub{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--dourado);margin-top:.2rem}
+.footer-col h5{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dourado);margin-bottom:1.2rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+.footer-col ul li a{font-size:.82rem;color:var(--muted-light);transition:color .3s}
+.footer-col ul li a:hover{color:var(--dourado)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:2rem;padding-top:1.8rem;flex-wrap:wrap}
+.footer-copy{font-size:.72rem;color:rgba(196,168,154,.5)}
+.footer-oab{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:rgba(200,169,107,.3)}
+.footer-camaly{font-size:.68rem;color:rgba(196,168,154,.35);transition:color .3s}
+.footer-camaly:hover{color:var(--dourado)}
+.footer-social{display:flex;gap:.8rem;margin-top:1.2rem}
+
+/* ── FLOATING WA ──────────────────────────────── */
+.floating-wa{position:fixed;bottom:2rem;right:2rem;width:58px;height:58px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,.35);z-index:998;transition:all .3s}
+.floating-wa:hover{transform:scale(1.1);box-shadow:0 12px 32px rgba(37,211,102,.5)}
+
+/* ── ANIMATIONS ───────────────────────────────── */
+.reveal{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-48px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(48px);transition:opacity .9s cubic-bezier(.25,.46,.45,.94),transform .9s cubic-bezier(.25,.46,.45,.94)}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ── RESPONSIVE ───────────────────────────────── */
+@media(max-width:1024px){
+  .hamburger{display:flex}
+  .nav-links,.nav-cta{display:none}
+  .hero-inner{grid-template-columns:1fr;grid-template-areas:"text" "visual" "btns" "stats";padding:7rem 6% 4rem;gap:0}
+  .hero-text{margin-bottom:1.8rem}
+  .hero-visual{margin-bottom:1.8rem}
+  .hero-btns{padding-bottom:0;margin-bottom:2.5rem;flex-direction:column;width:100%}
+  .hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;justify-content:center}
+  .hero-stats{flex-wrap:wrap;gap:1.5rem}
+  .hero-photo-wrap{max-width:100%}
+  .hero-photo-wrap img{height:380px}
+  .hero-badge-2{left:6px;top:12px;padding:.5rem .8rem;min-width:auto}
+  .hero-badge-2 strong{font-size:1.1rem}
+  .hero-badge-2 span{font-size:.52rem}
+  .dep-card{flex:0 0 100%}
+  .sobre-inner{grid-template-columns:1fr;gap:3rem;padding:0 6%}
+  .sobre-photo-img{height:420px}
+  .processo-steps{grid-template-columns:1fr}
+  .areas-grid{grid-template-columns:1fr}
+  .numeros-inner{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .numero-item + .numero-item::before{display:none}
+  .dif-grid{grid-template-columns:repeat(2,1fr)}
+  .dep-grid{grid-template-columns:1fr;max-width:500px}
+  .dep-card:nth-child(2){margin-top:0}
+  .contato-inner{grid-template-columns:1fr;gap:2rem}
+  .contato-photo{display:block;order:-1;max-height:300px;overflow:hidden}
+  .contato-photo img{max-height:300px;width:auto;margin:0 auto}
+  .footer-top{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:640px){
+  #navbar{padding:14px 5%}
+  .hero-h1{font-size:2.2rem}
+  .hero-btns{flex-direction:column;width:100%}
+  .hero-btns .btn-primary,.hero-btns .btn-ghost{width:100%;justify-content:center}
+  .hero-stats{gap:1.5rem;flex-wrap:wrap}
+  .hero-stat strong{font-size:1.8rem}
+  .sobre-photo-img{height:320px}
+  .form-row{grid-template-columns:1fr}
+  .dif-grid{grid-template-columns:1fr}
+  .numeros-inner{grid-template-columns:repeat(2,1fr)}
+  .footer-top{grid-template-columns:1fr;gap:1.8rem}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:1rem}
+  .contato-form-col{padding:1.8rem 1.4rem}
+}
+</style>
 </head>
 <body>
 
 <!-- NAVBAR -->
 <nav id="navbar">
-
+  <div class="nav-logo">
+    <img src="assets/imagemdecapa/logo.png" alt="Fernanda Costa Advocacia" onerror="this.style.display='none'">
+    <div>
+      <div class="nav-logo-text">Fernanda Costa</div>
+    </div>
+  </div>
   <ul class="nav-links">
-    <li><a href="#hero">Início</a></li>
-    <li><a href="#about">Sobre</a></li>
+    <li><a href="#sobre">Sobre</a></li>
     <li><a href="#areas">Atuação</a></li>
-    <li><a href="#testimonials">Resultados</a></li>
-    <li><a href="#cta-final">Contato</a></li>
+    <li><a href="#processo">Como Funciona</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contato">Contato</a></li>
   </ul>
-
+  <a href="#contato" class="nav-cta wa-link">Consulta Gratuita</a>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
 <!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobile-nav">
-  <button class="mobile-close" id="mobile-close">&#10005;</button>
-  <a href="#hero">Início</a>
-  <a href="#about">Sobre</a>
+  <button class="mobile-close" id="mobile-close">✕</button>
+  <a href="#sobre">Sobre</a>
   <a href="#areas">Atuação</a>
-  <a href="#testimonials">Resultados</a>
-  <a href="#cta-final">Contato</a>
-  <a class="wa-link btn-primary" href="#" style="font-size:.85rem;padding:12px 28px;">Falar no WhatsApp</a>
+  <a href="#processo">Como Funciona</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contato">Contato</a>
 </div>
-
-<!-- CONTACT FORM -->
-<section id="contact" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#1A1A1A; padding:7rem 5% 5rem 5%;">
-  <div style="width:100%; max-width:620px; display:flex; flex-direction:column; align-items:center; text-align:center;">
-    <div class="section-label centered" style="margin-bottom:0.6rem;">Atendimento</div>
-    <h2 class="section-title" style="text-align:center; margin-bottom:0.6rem;">Fale com a nossa <em>Equipe</em></h2>
-    <p style="color:#D4CFC6; font-size:.9rem; line-height:1.6; font-weight:300; margin-bottom:1.2rem; text-align:center;">Preencha o formulário abaixo com os seus dados. Avaliaremos o seu caso rapidamente e entraremos em contato para uma orientação especializada.</p>
-
-    <form id="contact-form" action="#" method="POST" style="width:100%; display:flex; flex-direction:column; gap:0.7rem;">
-      <input type="text" name="nome" placeholder="Seu nome" required
-        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
-      <input type="email" name="email" placeholder="Seu email" required
-        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
-      <input type="tel" name="telefone" placeholder="DDD + Telefone" required
-        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
-      <textarea name="mensagem" placeholder="Descreva brevemente o seu caso" rows="3" required
-        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s; resize:vertical;"></textarea>
-      <button type="submit" class="btn-primary" style="width:100%; justify-content:center; text-align:center; display:flex; align-items:center; margin-top:0.3rem;">QUERO UMA AVALIAÇÃO!</button>
-    </form>
-  </div>
-</section>
 
 <!-- HERO -->
 <section id="hero">
-
-  <div class="hero-left">
-    <div class="hero-eyebrow reveal">Advocacia de Excelência</div>
-    <h1 class="hero-headline reveal stagger-1">Defesa jurídica <em>estratégica</em> com atendimento humanizado.</h1>
-    <p class="hero-sub reveal stagger-2">Atuação especializada em Direito Trabalhista e Direito do Consumidor para clientes em todo o Brasil.</p>
-    <div class="hero-btns reveal stagger-3">
-      <a class="btn-primary wa-link" href="#" style="display: flex; align-items: center; gap: 8px;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
-        Falar com especialista
+  <div class="hero-noise"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow reveal">Advocacia de Excelência</span>
+      <h1 class="hero-h1 reveal d1">
+        Seu direito merece<br>
+        <em>uma defesa que<br>não recua.</em>
+      </h1>
+      <p class="hero-sub reveal d2">Especialistas em Direito Trabalhista e Direito do Consumidor. Atendimento humanizado, estratégia afiada e resultados concretos em todo o Brasil.</p>
+    </div>
+    <div class="hero-visual reveal-right d2">
+      <div class="hero-photo-wrap">
+        <div class="hero-photo-frame"></div>
+        <img src="assets/img/PHOTO-2026-05-21-08-48-32.jpg" alt="Dra. Fernanda Costa">
+        <div class="hero-badge hero-badge-2">
+          <strong>8+</strong>
+          <span>Anos de atuação</span>
+        </div>
+        <div class="hero-oab">Atendimento Nacional</div>
+      </div>
+    </div>
+    <div class="hero-btns reveal d3">
+      <a class="btn-primary wa-link" href="#">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+        <span>Consulta Gratuita</span>
       </a>
-      <a class="btn-secondary" href="#testimonials">Conhecer resultados</a>
+      <a class="btn-ghost" href="#sobre">Conheça a Dra. Fernanda</a>
     </div>
-    <div class="hero-stats reveal stagger-4">
-      <div class="hero-stat"><strong>100</strong><span>Casos Resolvidos</span></div>
-      <div class="hero-stat"><strong>98%</strong><span>Clientes Satisfeitos</span></div>
-      <div class="hero-stat"><strong>8+</strong><span>Anos de Experiência</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img-wrap reveal-left">
-      <img class="about-img" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" loading="lazy">
-    </div>
-    <div class="about-content">
-      <div class="section-label reveal">Sobre a Advogada</div>
-      <h2 class="section-title reveal stagger-1">Dra. <em>Fernanda Costa</em></h2>
-      <p class="about-bio reveal stagger-2">Com mais de 8 anos de experiência dedicados exclusivamente ao Direito Trabalhista e ao Direito do Consumidor, a Dra. Fernanda Costa construiu uma trajetória marcada por resultados concretos e atendimento verdadeiramente humano.</p>
-      <p class="about-bio reveal stagger-3">Acreditamos que cada cliente merece mais do que um advogado — merece um aliado estratégico que compreende sua realidade, defende seus interesses com técnica e luta com determinação pelo que é seu de direito.</p>
-      <div class="about-credentials reveal stagger-4">
-        <div class="credential">Especialista em Direito Trabalhista e Processual do Trabalho</div>
-        <div class="credential">Pós-graduada em Direito do Consumidor</div>
-        <div class="credential">Membro da OAB — Ordem dos Advogados do Brasil</div>
-        <div class="credential">Atendimento em todo o território nacional</div>
+    <div class="hero-stats reveal d4">
+      <div class="hero-stat">
+        <strong class="count-num" data-target="100" data-suffix="+">0+</strong>
+        <span>Casos Resolvidos</span>
+      </div>
+      <div class="hero-stat">
+        <strong class="count-num" data-target="98" data-suffix="%">0%</strong>
+        <span>Clientes Satisfeitos</span>
+      </div>
+      <div class="hero-stat">
+        <strong class="count-num" data-target="8" data-suffix="+">0+</strong>
+        <span>Anos de Experiência</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COUNTERS -->
-<div class="counters">
-  <div class="counter-item reveal"><strong class="count-num" data-target="100" data-suffix="+">0+</strong><span>Casos Resolvidos</span></div>
-  <div class="counter-item reveal stagger-1"><strong class="count-num" data-target="98" data-suffix="%">0%</strong><span>Satisfação dos Clientes</span></div>
-  <div class="counter-item reveal stagger-2"><strong class="count-num" data-target="8" data-suffix="+">0+</strong><span>Anos de Experiência</span></div>
-  <div class="counter-item reveal stagger-3"><strong class="count-num" data-target="100" data-suffix="%">0%</strong><span>Dedicação ao Cliente</span></div>
+<!-- VÍDEO -->
+<section id="video">
+  <div class="video-inner">
+    <span class="eyebrow reveal" style="justify-content:center;color:var(--dourado)">Apresentação</span>
+    <h2 class="section-title reveal d1" style="color:var(--nude)">Uma advogada que une <em>técnica e humanidade.</em></h2>
+    <p class="video-sub reveal d2">Conheça a Dra. Fernanda Costa em suas próprias palavras.</p>
+    <div class="video-wrap reveal d3" id="video-wrap">
+      <div class="video-frame-corner vfc-tl"></div>
+      <div class="video-frame-corner vfc-tr"></div>
+      <div class="video-frame-corner vfc-bl"></div>
+      <div class="video-frame-corner vfc-br"></div>
+      <video id="hero-video" preload="metadata" playsinline>
+        <source src="assets/img/video-fernanda.mp4" type="video/mp4">
+        Seu navegador não suporta a tag de vídeo.
+      </video>
+      <div class="video-play-btn" id="video-play-btn">
+        <div class="video-play-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE STRIP -->
+<div class="quote-strip">
+  <blockquote>"Cada cliente não é apenas um processo — é uma pessoa que merece <strong>justiça de verdade.</strong>"</blockquote>
 </div>
 
-<!-- AREAS -->
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="sobre-inner">
+    <div class="sobre-photo-col reveal-left">
+      <div class="sobre-photo-bg"></div>
+      <img class="sobre-photo-img" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa">
+      <div class="sobre-accent-line"></div>
+    </div>
+    <div class="sobre-content">
+      <span class="eyebrow reveal">Sobre a Advogada</span>
+      <h2 class="section-title reveal d1">Dra. <em>Fernanda Costa</em></h2>
+      <p class="sobre-bio reveal d2">Com mais de 8 anos de experiência dedicados integralmente ao Direito Trabalhista e ao Direito do Consumidor, a Dra. Fernanda Costa construiu uma trajetória marcada por resultados expressivos e por um atendimento verdadeiramente humanizado.</p>
+      <p class="sobre-bio reveal d3">Acreditamos que a advocacia vai além da técnica jurídica. É sobre entender a realidade de cada cliente, defender seus interesses com estratégia e lutar com determinação pelo que é seu de direito — sem abrir mão da ética e da transparência.</p>
+      <div class="sobre-credentials reveal d4">
+        <div class="credential">Especialista em Direito Trabalhista e Processual do Trabalho</div>
+        <div class="credential">Pós-graduada em Direito do Consumidor</div>
+        <div class="credential">Membro ativa da OAB — Ordem dos Advogados do Brasil</div>
+        <div class="credential">Atendimento presencial (Rio de Janeiro) e online em todo o Brasil</div>
+      </div>
+      <div class="sobre-cta reveal d5">
+        <a href="#contato" class="btn-dark">Agendar Consulta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="processo">
+  <div class="processo-inner">
+    <span class="eyebrow reveal" style="color:var(--dourado)">Como Trabalhamos</span>
+    <h2 class="section-title reveal d1">Processo <em>simples,<br>resultado sólido.</em></h2>
+    <p class="processo-sub reveal d2">Três etapas claras para defender os seus direitos com eficiência e transparência.</p>
+    <div class="processo-steps">
+      <div class="processo-step reveal">
+        <div class="step-number">01</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        </div>
+        <h3>Primeiro Contato</h3>
+        <p>Entre em contato pelo WhatsApp ou formulário. Resposta rápida, sem burocracia. Você descreve sua situação e nós te ouvimos com atenção.</p>
+      </div>
+      <div class="processo-step reveal d2">
+        <div class="step-number">02</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Análise do Caso</h3>
+        <p>Avaliamos detalhadamente sua situação jurídica. Identificamos as melhores estratégias, prazos e possibilidades reais — com total honestidade e clareza.</p>
+      </div>
+      <div class="processo-step reveal d3">
+        <div class="step-number">03</div>
+        <div class="step-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <h3>Ação e Resultado</h3>
+        <p>Executamos a estratégia com técnica, agilidade e dedicação. Você acompanha cada etapa do processo com transparência total até a resolução.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÁREAS DE ATUAÇÃO -->
 <section id="areas">
-  <div class="areas-header">
-    <div class="section-label reveal">Especialidades</div>
-    <h2 class="section-title reveal stagger-1">Áreas de <em>Atuação</em></h2>
-  </div>
-  <div class="areas-grid">
-    <div class="area-card reveal">
-      <h3>Direito Trabalhista</h3>
-      <p>Defesa dos direitos do trabalhador com estratégia jurídica sólida. Atuamos em demissões injustas, verbas rescisórias, assédio moral, horas extras e todos os conflitos entre empregado e empregador.</p>
-    </div>
-    <div class="area-card reveal stagger-2">
-      <h3>Direito do Consumidor</h3>
-      <p>Proteção integral ao consumidor frente a práticas abusivas, cobranças indevidas, produtos defeituosos, fraudes bancárias e violações do CDC. Seu direito tem defesa.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- VIDEO -->
-<section id="video">
-  <div class="video-header">
-    <div class="section-label reveal">Apresentação</div>
-    <h2 class="section-title reveal stagger-1" style="font-size:clamp(1.2rem,2vw,1.8rem);max-width:600px;margin:0 auto;line-height:1.4;">Uma advogada que une técnica jurídica de alto nível com atendimento verdadeiramente <em>humanizado.</em></h2>
-  </div>
-  <div class="video-wrapper reveal">
-    <video class="video-thumb" controls style="filter: brightness(1); border-radius: 4px;">
-      <source src="video%20fernanda.mp4" type="video/mp4">
-      Seu navegador não suporta a tag de vídeo.
-    </video>
-  </div>
-</section>
-
-<!-- DIFFERENTIALS -->
-<section id="differentials">
-  <div class="section-label reveal">Por que nos escolher</div>
-  <h2 class="section-title reveal stagger-1">Nossos <em>Diferenciais</em></h2>
-  <div class="diff-grid">
-    <div class="diff-card reveal">
-      <h4>Atendimento Humanizado</h4>
-      <p>Você não é apenas um processo. Cada caso recebe atenção individualizada, com escuta ativa e comunicação clara em todas as etapas.</p>
-    </div>
-    <div class="diff-card reveal stagger-1">
-      <h4>Estratégia Personalizada</h4>
-      <p>Cada caso é único. Desenvolvemos uma estratégia jurídica sob medida para maximizar seus resultados e proteger seus interesses.</p>
-    </div>
-    <div class="diff-card reveal stagger-2">
-      <h4>Transparência Total</h4>
-      <p>Você acompanha cada etapa do seu processo com clareza. Sem surpresas, sem jargões jurídicos incompreensíveis.</p>
-    </div>
-    <div class="diff-card reveal stagger-1">
-      <h4>Agilidade Jurídica</h4>
-      <p>Prazos respeitados e respostas rápidas. Sua urgência é levada a sério desde o primeiro contato.</p>
-    </div>
-    <div class="diff-card reveal stagger-2">
-      <h4>Atendimento Nacional</h4>
-      <p>Atendemos clientes em todo o Brasil com a mesma dedicação e qualidade, via online ou presencialmente no Rio de Janeiro.</p>
-    </div>
-    <div class="diff-card reveal stagger-3">
-      <h4>Acompanhamento Próximo</h4>
-      <p>Disponibilidade real. Nossa equipe está acessível para atualizar, esclarecer e orientar você sempre que precisar.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="test-header">
-    <div class="section-label reveal">Depoimentos</div>
-    <h2 class="section-title reveal stagger-1">Resultados que <em>geram confiança</em></h2>
-  </div>
-  <div class="test-grid">
-    <div class="test-card reveal">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="test-quote">"</div>
-      <p class="test-text">A Dra. Fernanda me ajudou a recuperar todos os meus direitos trabalhistas após uma demissão injusta. Profissional excepcional, sempre presente e muito dedicada ao meu caso.</p>
-      <div class="test-author">
-        <div class="test-avatar">M</div>
-        <div><div class="test-name">Marcos Oliveira</div><div class="test-area">Direito Trabalhista</div></div>
+  <div class="areas-inner">
+    <span class="eyebrow reveal">Especialidades</span>
+    <h2 class="section-title reveal d1" style="color:var(--cafe-dark)">Áreas de <em>Atuação</em></h2>
+    <p class="areas-intro reveal d2">Atuação focada, conhecimento profundo. Defendemos seus direitos nas áreas onde mais fazemos diferença.</p>
+    <div class="areas-grid">
+      <div class="area-card reveal">
+        <div class="area-num">01</div>
+        <h3>Direito Trabalhista</h3>
+        <p>Defesa completa dos direitos do trabalhador com estratégia jurídica sólida e atendimento próximo. Do primeiro atendimento à sentença final.</p>
+        <div class="area-subitems">
+          <div class="area-subitem">Demissão injusta e verbas rescisórias</div>
+          <div class="area-subitem">Horas extras não pagas</div>
+          <div class="area-subitem">Assédio moral e sexual no trabalho</div>
+          <div class="area-subitem">FGTS e multa rescisória</div>
+          <div class="area-subitem">Equiparação salarial</div>
+          <div class="area-subitem">Acidente de trabalho e doenças ocupacionais</div>
+          <div class="area-subitem">Reconhecimento de vínculo empregatício</div>
+        </div>
       </div>
-    </div>
-    <div class="test-card reveal stagger-1">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="test-quote">"</div>
-      <p class="test-text">Tive um problema sério com uma empresa de telefonia e a Fernanda resolveu tudo rapidamente. Ganhei a ação e ainda recebi indenização por danos morais. Indico de olhos fechados!</p>
-      <div class="test-author">
-        <div class="test-avatar">A</div>
-        <div><div class="test-name">Ana Lima</div><div class="test-area">Direito do Consumidor</div></div>
-      </div>
-    </div>
-    <div class="test-card reveal stagger-2">
-      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <div class="test-quote">"</div>
-      <p class="test-text">Atendimento humanizado de verdade. A Dra. Fernanda explicou cada detalhe do processo com paciência e clareza. Resultado excelente no meu caso de verbas rescisórias.</p>
-      <div class="test-author">
-        <div class="test-avatar">R</div>
-        <div><div class="test-name">Ricardo Santos</div><div class="test-area">Direito Trabalhista</div></div>
+      <div class="area-card reveal d2">
+        <div class="area-num">02</div>
+        <h3>Direito do Consumidor</h3>
+        <p>Proteção integral ao consumidor frente a práticas abusivas e irregularidades. Seu direito não é favor — é lei.</p>
+        <div class="area-subitems">
+          <div class="area-subitem">Fraudes bancárias e cobranças indevidas</div>
+          <div class="area-subitem">Negativação indevida no SPC/Serasa</div>
+          <div class="area-subitem">Produtos com defeito ou serviços falhos</div>
+          <div class="area-subitem">Plano de saúde — negativas e reajustes</div>
+          <div class="area-subitem">Cancelamento de contratos abusivos</div>
+          <div class="area-subitem">Indenização por danos morais e materiais</div>
+          <div class="area-subitem">Problemas com compras online</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- NÚMEROS -->
+<div class="numeros">
+  <div class="numeros-inner">
+    <div class="numero-item reveal">
+      <strong class="count-num" data-target="100" data-suffix="+">0+</strong>
+      <span>Casos Resolvidos</span>
+    </div>
+    <div class="numero-item reveal d2">
+      <strong class="count-num" data-target="98" data-suffix="%">0%</strong>
+      <span>Clientes Satisfeitos</span>
+    </div>
+    <div class="numero-item reveal d3">
+      <strong class="count-num" data-target="8" data-suffix="+">0+</strong>
+      <span>Anos de Experiência</span>
+    </div>
+    <div class="numero-item reveal d4">
+      <strong class="count-num" data-target="100" data-suffix="%">0%</strong>
+      <span>Dedicação ao Cliente</span>
+    </div>
+  </div>
+</div>
 
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="dif-inner">
+    <span class="eyebrow reveal">Por que nos escolher</span>
+    <h2 class="section-title reveal d1" style="color:var(--cafe-dark)">Nossos <em>Diferenciais</em></h2>
+    <p class="dif-sub reveal d2">O que nos separa não é apenas a técnica — é a forma como nos importamos com cada caso.</p>
+    <div class="dif-grid">
+      <div class="dif-card reveal">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h4>Atendimento Humanizado</h4>
+        <p>Você não é apenas um número de processo. Cada caso recebe atenção individual, escuta ativa e comunicação transparente em todas as etapas.</p>
+      </div>
+      <div class="dif-card reveal d1">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h4>Estratégia Personalizada</h4>
+        <p>Cada caso é único. Desenvolvemos uma estratégia jurídica sob medida para maximizar seus resultados com base nas especificidades da sua situação.</p>
+      </div>
+      <div class="dif-card reveal d2">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <h4>Transparência Total</h4>
+        <p>Sem jargões jurídicos incompreensíveis. Você acompanha cada etapa com clareza, sabe o que está acontecendo e o que esperar em cada fase.</p>
+      </div>
+      <div class="dif-card reveal d1">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Agilidade Jurídica</h4>
+        <p>Prazos respeitados, respostas rápidas. Sua urgência é levada a sério desde o primeiro contato. Não deixamos nada para depois.</p>
+      </div>
+      <div class="dif-card reveal d2">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>Atendimento Nacional</h4>
+        <p>Atendemos clientes em todo o Brasil com a mesma dedicação e qualidade, via online ou presencialmente no Rio de Janeiro.</p>
+      </div>
+      <div class="dif-card reveal d3">
+        <div class="dif-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h4>Acompanhamento Próximo</h4>
+        <p>Nossa equipe está acessível para atualizar, esclarecer e orientar você sempre que precisar. Disponibilidade real, não promessas vazias.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- FINAL CTA -->
-<section id="cta-final">
-  <div class="cta-bg"></div>
-  <div class="section-label reveal" style="justify-content:center">Fale Conosco</div>
-  <h2 class="cta-title reveal stagger-1">Seu direito merece uma <em>defesa estratégica.</em></h2>
-  <p class="cta-sub reveal stagger-2">Fale agora com nossa equipe e receba orientação especializada. Primeiro atendimento gratuito.</p>
-  <div class="reveal stagger-3">
-    <a class="btn-whatsapp wa-link" href="#">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
-      Conversar no WhatsApp
-    </a>
+<!-- DEPOIMENTOS -->
+<section id="depoimentos">
+  <div class="dep-inner">
+    <span class="eyebrow reveal">Depoimentos</span>
+    <h2 class="section-title reveal d1" style="color:var(--cafe-dark)">Resultados que <em>geram confiança</em></h2>
+    <p class="dep-sub reveal d2">A satisfação de quem defendemos é a nossa maior conquista.</p>
+    <div class="dep-carousel" id="dep-carousel">
+      <div class="dep-track" id="dep-track">
+        <div class="dep-card">
+          <div class="dep-quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="dep-text">A Dra. Fernanda me ajudou a recuperar todos os meus direitos trabalhistas após uma demissão injusta. Profissional excepcional, sempre presente e muito dedicada ao meu caso.</p>
+          <div class="dep-author">
+            <div class="dep-avatar">M</div>
+            <div>
+              <div class="dep-name">Marcos Oliveira</div>
+              <div class="dep-area">Direito Trabalhista</div>
+            </div>
+          </div>
+        </div>
+        <div class="dep-card">
+          <div class="dep-quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="dep-text">Tive um problema sério com uma empresa de telefonia e a Fernanda resolveu tudo rapidamente. Ganhei a ação e ainda recebi indenização por danos morais. Indico de olhos fechados!</p>
+          <div class="dep-author">
+            <div class="dep-avatar">A</div>
+            <div>
+              <div class="dep-name">Ana Lima</div>
+              <div class="dep-area">Direito do Consumidor</div>
+            </div>
+          </div>
+        </div>
+        <div class="dep-card">
+          <div class="dep-quote-mark">"</div>
+          <div class="stars">★★★★★</div>
+          <p class="dep-text">Atendimento humanizado de verdade. A Dra. Fernanda explicou cada detalhe do processo com paciência e clareza. Resultado excelente no meu caso de verbas rescisórias.</p>
+          <div class="dep-author">
+            <div class="dep-avatar">R</div>
+            <div>
+              <div class="dep-name">Ricardo Santos</div>
+              <div class="dep-area">Direito Trabalhista</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dep-dots" id="dep-dots">
+      <button class="dep-dot active" data-idx="0"></button>
+      <button class="dep-dot" data-idx="1"></button>
+      <button class="dep-dot" data-idx="2"></button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-inner">
+    <span class="eyebrow reveal">Perguntas Frequentes</span>
+    <h2 class="section-title reveal d1" style="color:var(--cafe-dark)">Suas dúvidas, <em>respondidas.</em></h2>
+    <p class="faq-sub reveal d2">Tire suas principais dúvidas sobre nossos serviços e o processo jurídico.</p>
+    <div class="faq-list reveal d3">
+      <div class="faq-item">
+        <button class="faq-q">
+          A consulta inicial é mesmo gratuita?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Sim. Oferecemos uma primeira avaliação gratuita para entender sua situação e verificar se temos como ajudá-lo. Não há nenhum compromisso ou custo nesse primeiro contato.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Vocês atendem clientes fora do Rio de Janeiro?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Sim, atendemos clientes em todo o Brasil. O atendimento pode ser feito de forma 100% online via videochamada, WhatsApp ou e-mail, com a mesma qualidade e atenção do atendimento presencial.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Fui demitido. Tenho prazo para entrar com ação trabalhista?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Sim, é fundamental agir com rapidez. A legislação trabalhista prevê um prazo prescricional de 2 anos após o término do contrato de trabalho para ingressar com ação na Justiça. Porém, alguns direitos têm prazo menor. Entre em contato o quanto antes para não perder seus direitos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Preciso de documentos para a consulta inicial?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Não é obrigatório. Para a primeira conversa, basta me contar sua situação. Documentos como carteira de trabalho, contracheques, contratos ou notificações poderão ser necessários em etapas seguintes, conforme o tipo de caso.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Como funciona a cobrança pelos serviços?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Os honorários variam conforme a complexidade e o tipo de caso. Em muitas ações trabalhistas, trabalhamos com honorários de êxito — ou seja, você só paga se ganhar. Apresentamos todas as condições com clareza antes de qualquer compromisso.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">
+          Quanto tempo leva um processo trabalhista?
+          <span class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="6" y1="1" x2="6" y2="11"/><line x1="1" y1="6" x2="11" y2="6"/></svg></span>
+        </button>
+        <div class="faq-a"><p>Depende muito da comarca, da complexidade do caso e da via escolhida. Em média, ações trabalhistas levam de 1 a 3 anos. Porém, muitos casos se resolvem em audiências de conciliação, de forma muito mais rápida. Buscamos sempre a via mais ágil que preserve seus direitos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner">
+    <div class="contato-info">
+      <span class="eyebrow reveal" style="color:var(--dourado)">Fale Conosco</span>
+      <h2 class="section-title reveal d1" style="color:var(--nude)">Seu direito começa com<br><em>uma conversa.</em></h2>
+      <p class="contato-desc reveal d2">Primeiro atendimento gratuito. Sem compromisso. Avaliamos seu caso com atenção e te orientamos com honestidade sobre as melhores alternativas.</p>
+    </div>
+    <div class="contato-photo reveal d2">
+      <img src="assets/img/PHOTO-2026-05-21-08-48-32-Photoroom.png" alt="Dra. Fernanda Costa">
+    </div>
+    <div class="contato-form-col reveal-right d3">
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Nome</label>
+            <input type="text" name="nome" placeholder="Seu nome completo" required>
+          </div>
+          <div class="form-field">
+            <label>Telefone</label>
+            <input type="tel" name="telefone" placeholder="(DDD) 00000-0000" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>E-mail</label>
+          <input type="email" name="email" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-field">
+          <label>Área de interesse</label>
+          <select name="area">
+            <option value="" disabled selected>Selecione uma área</option>
+            <option value="trabalhista">Direito Trabalhista</option>
+            <option value="consumidor">Direito do Consumidor</option>
+            <option value="outro">Outro / Não sei ainda</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Descreva seu caso</label>
+          <textarea name="mensagem" placeholder="Conte brevemente sua situação..." required></textarea>
+        </div>
+        <button type="submit" class="form-submit">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+          Quero uma Avaliação Gratuita
+        </button>
+      </form>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-
-    <div class="footer-links">
-      <a class="wa-link" href="#">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
-        WhatsApp
-      </a>
-      <a href="https://instagram.com/advfernanda.cos" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        @advfernanda.cos
-      </a>
-      <a href="mailto:adv.carlafernandacomercial@gmail.com">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
-        adv.carlafernandacomercial@gmail.com
-      </a>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-text">Fernanda Costa</div>
+      <div class="footer-logo-sub">Advocacia</div>
+      <p>Defesa jurídica estratégica com atendimento humanizado. Especialistas em Direito Trabalhista e Direito do Consumidor.</p>
     </div>
-    <div class="footer-copy">
-      &copy; 2025 Fernanda Costa Advocacia. Todos os direitos reservados.<br>
-      <span style="color:rgba(122,117,112,.5);font-size:.65rem">OAB/RJ — Advocacia especializada em todo o Brasil</span><br>
-      <a href="https://camaly.com.br/" target="_blank" rel="noopener" style="display: inline-block; margin-top: 10px; color: var(--muted); font-size: 0.7rem; transition: color 0.3s;">Produzida com💚por CAMALY</a>
+    <div class="footer-col">
+      <h5>Navegação</h5>
+      <ul>
+        <li><a href="#sobre">Sobre a Dra. Fernanda</a></li>
+        <li><a href="#areas">Áreas de Atuação</a></li>
+        <li><a href="#processo">Como Funciona</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
     </div>
+    <div class="footer-col">
+      <h5>Especialidades</h5>
+      <ul>
+        <li><a href="#areas">Direito Trabalhista</a></li>
+        <li><a href="#areas">Direito do Consumidor</a></li>
+        <li><a href="#areas">Verbas Rescisórias</a></li>
+        <li><a href="#areas">Assédio Moral</a></li>
+        <li><a href="#areas">Fraudes Bancárias</a></li>
+        <li><a href="#areas">Danos Morais</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contato</h5>
+      <ul>
+        <li><a href="#" class="wa-link">WhatsApp: (21) 97318-4161</a></li>
+        <li><a href="mailto:adv.carlafernandacomercial@gmail.com">adv.carlafernandacomercial@gmail.com</a></li>
+        <li><a href="#areas">Rio de Janeiro, RJ — Atendimento Nacional</a></li>
+        <li><a href="#contato">Consulta Gratuita</a></li>
+      </ul>
+      <div class="footer-social">
+        <a href="https://instagram.com/advfernanda.cos" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Fernanda Costa Advocacia. Todos os direitos reservados.</div>
+    <div class="footer-oab">OAB/RJ — Atendimento em todo o Brasil</div>
+    <a href="https://camaly.com.br/" target="_blank" rel="noopener" class="footer-camaly">Produzida com ♥ por CAMALY</a>
   </div>
 </footer>
 
-
-
-<!-- WHATSAPP FLOATING BUTTON -->
+<!-- FLOATING WHATSAPP -->
 <a href="#" class="wa-link floating-wa" aria-label="Falar no WhatsApp">
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
 </a>
 
-<script src="assets/js/main.js"></script>
+<script>
+const WA = 'https://api.whatsapp.com/send?phone=5521973184161&text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20a%20Dra.%20Fernanda%20Costa.';
+
+// WhatsApp links
+document.querySelectorAll('.wa-link').forEach(el => { el.href = WA; el.target = '_blank'; el.rel = 'noopener noreferrer'; });
+
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+let lastY = 0;
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y <= 60) { navbar.classList.remove('hidden','scrolled'); lastY = y; return; }
+  if (y > lastY) navbar.classList.add('hidden');
+  else { navbar.classList.remove('hidden'); navbar.classList.add('scrolled'); }
+  lastY = y;
+});
+
+// Mobile nav
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+const mobileClose = document.getElementById('mobile-close');
+hamburger?.addEventListener('click', () => mobileNav.classList.toggle('open'));
+mobileClose?.addEventListener('click', () => mobileNav.classList.remove('open'));
+mobileNav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => observer.observe(el));
+
+// Animated counters
+function animateCounter(el, target, suffix='') {
+  let start = null;
+  const dur = 2000;
+  const step = ts => {
+    if (!start) start = ts;
+    const p = Math.min((ts - start) / dur, 1);
+    const ease = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+const cObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target, parseInt(e.target.dataset.target), e.target.dataset.suffix || '');
+      cObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-num').forEach(el => cObserver.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Contact form → WhatsApp
+document.getElementById('contact-form')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target;
+  const nome = f.nome.value;
+  const email = f.email.value;
+  const telefone = f.telefone.value;
+  const area = f.area.value;
+  const mensagem = f.mensagem.value;
+  const txt = `Olá, Dra. Fernanda Costa! Gostaria de solicitar uma avaliação:\n\n• *Nome:* ${nome}\n• *E-mail:* ${email}\n• *Telefone:* ${telefone}\n• *Área:* ${area}\n• *Caso:* ${mensagem}`;
+  window.open(`https://api.whatsapp.com/send?phone=5521973184161&text=${encodeURIComponent(txt)}`, '_blank');
+});
+
+// Botão de play com áudio
+const heroVideo = document.getElementById('hero-video');
+const playBtn = document.getElementById('video-play-btn');
+if (heroVideo && playBtn) {
+  playBtn.addEventListener('click', () => {
+    heroVideo.muted = false;
+    heroVideo.controls = true;
+    heroVideo.play();
+    playBtn.classList.add('hidden');
+  });
+  heroVideo.addEventListener('ended', () => {
+    playBtn.classList.remove('hidden');
+    heroVideo.controls = false;
+  });
+}
+
+// Carrossel de depoimentos
+(function() {
+  const track = document.getElementById('dep-track');
+  const dots = document.querySelectorAll('.dep-dot');
+  if (!track) return;
+  let current = 0;
+  let startX = 0;
+  let isDragging = false;
+
+  function getPerItem() {
+    return window.innerWidth <= 1024 ? 1 : 3;
+  }
+
+  function totalSlides() {
+    return track.children.length;
+  }
+
+  function goTo(idx) {
+    const perItem = getPerItem();
+    const max = totalSlides() - perItem;
+    current = Math.max(0, Math.min(idx, max));
+    const cardW = track.children[0].offsetWidth + 24;
+    track.style.transform = `translateX(-${current * cardW}px)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
+
+  // Touch/swipe
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; isDragging = true; }, {passive:true});
+  track.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+    isDragging = false;
+  });
+
+  window.addEventListener('resize', () => goTo(0));
+})();
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
 </body>
 </html>
