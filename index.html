@@ -866,9 +866,10 @@ footer{background:linear-gradient(160deg,#140a04 0%,var(--cafe-dark) 50%,#1f0e06
           <label>Descreva seu caso</label>
           <textarea name="mensagem" placeholder="Conte brevemente sua situação..." required></textarea>
         </div>
-        <button type="submit" class="form-submit">
+        <button type="submit" class="form-submit" id="form-submit-btn">
           Enviar Mensagem
         </button>
+        <div id="form-feedback" style="display:none;margin-top:1rem;padding:1rem 1.2rem;font-size:.84rem;letter-spacing:.04em;text-align:center"></div>
       </form>
     </div>
   </div>
@@ -985,16 +986,46 @@ document.querySelectorAll('.faq-q').forEach(btn => {
 });
 
 // Contact form → WhatsApp
-document.getElementById('contact-form')?.addEventListener('submit', e => {
+document.getElementById('contact-form')?.addEventListener('submit', async e => {
   e.preventDefault();
   const f = e.target;
-  const nome = f.nome.value;
-  const email = f.email.value;
-  const telefone = f.telefone.value;
-  const area = f.area.value;
-  const mensagem = f.mensagem.value;
-  const txt = `Olá, Dra. Fernanda Costa! Gostaria de solicitar uma avaliação:\n\n• *Nome:* ${nome}\n• *E-mail:* ${email}\n• *Telefone:* ${telefone}\n• *Área:* ${area}\n• *Caso:* ${mensagem}`;
-  window.open(`https://api.whatsapp.com/send?phone=5521973184161&text=${encodeURIComponent(txt)}`, '_blank');
+  const btn = document.getElementById('form-submit-btn');
+  const feedback = document.getElementById('form-feedback');
+
+  const dados = {
+    nome: f.nome.value,
+    email: f.email.value,
+    telefone: f.telefone.value,
+    area: f.area.value,
+    mensagem: f.mensagem.value
+  };
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  feedback.style.display = 'none';
+
+  try {
+    await fetch('https://hook.us2.make.com/ccvh9q9kqz7lm7u9ge7dpf6dqe9l5qsv', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(dados)
+    });
+    feedback.style.display = 'block';
+    feedback.style.background = 'rgba(200,169,107,.12)';
+    feedback.style.color = '#C8A96B';
+    feedback.style.border = '1px solid rgba(200,169,107,.3)';
+    feedback.textContent = '✓ Mensagem enviada com sucesso! Entraremos em contato em breve.';
+    f.reset();
+  } catch {
+    feedback.style.display = 'block';
+    feedback.style.background = 'rgba(180,60,60,.12)';
+    feedback.style.color = '#e08080';
+    feedback.style.border = '1px solid rgba(180,60,60,.3)';
+    feedback.textContent = '✗ Erro ao enviar. Por favor, tente novamente ou entre em contato pelo WhatsApp.';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Enviar Mensagem';
+  }
 });
 
 // Vídeo — play, pause, auto-pause ao sair da tela
