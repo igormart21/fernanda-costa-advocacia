@@ -1,7 +1,27 @@
-﻿// Navbar scroll
+// Navbar scroll — esconde ao rolar para baixo, aparece ao rolar para cima
 const navbar = document.getElementById('navbar');
+let lastScrollY = 0;
+
 window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  const currentScrollY = window.scrollY;
+
+  // No topo da página: sempre mostra a navbar
+  if (currentScrollY <= 60) {
+    navbar.classList.remove('navbar-hidden');
+    navbar.classList.remove('scrolled');
+    return;
+  }
+
+  // Rolando para baixo: esconde
+  if (currentScrollY > lastScrollY) {
+    navbar.classList.add('navbar-hidden');
+  } else {
+    // Rolando para cima: mostra com fundo escuro
+    navbar.classList.remove('navbar-hidden');
+    navbar.classList.add('scrolled');
+  }
+
+  lastScrollY = currentScrollY;
 });
 
 // Hamburger menu
@@ -83,4 +103,25 @@ window.addEventListener('scroll', () => {
   if (heroRight && window.innerWidth > 1024) {
     heroRight.style.transform = `translateY(${window.scrollY * 0.12}px)`;
   }
+});
+
+// Formulário de contato para WhatsApp
+const contactForm = document.querySelector('#contact-form');
+contactForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  
+  const nome = contactForm.querySelector('input[name="nome"]').value;
+  const email = contactForm.querySelector('input[name="email"]').value;
+  const telefone = contactForm.querySelector('input[name="telefone"]').value;
+  const mensagem = contactForm.querySelector('textarea[name="mensagem"]').value;
+  
+  const textoWhatsApp = `Olá, Dra. Fernanda Costa. Gostaria de solicitar uma avaliação:\n\n` +
+    `• *Nome:* ${nome}\n` +
+    `• *E-mail:* ${email}\n` +
+    `• *Telefone:* ${telefone}\n` +
+    `• *Caso/Mensagem:* ${mensagem}`;
+  
+  const url = `https://api.whatsapp.com/send?phone=5521973184161&text=${encodeURIComponent(textoWhatsApp)}`;
+  
+  window.open(url, '_blank');
 });

@@ -18,7 +18,7 @@
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div class="nav-logo"><img src="assets/imagemdecapa/logo.png" alt="Fernanda Costa Advocacia" style="height: 110px; width: auto; display: block;"></div>
+
   <ul class="nav-links">
     <li><a href="#hero">Início</a></li>
     <li><a href="#about">Sobre</a></li>
@@ -41,6 +41,27 @@
   <a class="wa-link btn-primary" href="#" style="font-size:.85rem;padding:12px 28px;">Falar no WhatsApp</a>
 </div>
 
+<!-- CONTACT FORM -->
+<section id="contact" style="min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; background:#1A1A1A; padding:7rem 5% 5rem 5%;">
+  <div style="width:100%; max-width:620px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+    <div class="section-label centered" style="margin-bottom:0.6rem;">Atendimento</div>
+    <h2 class="section-title" style="text-align:center; margin-bottom:0.6rem;">Fale com a nossa <em>Equipe</em></h2>
+    <p style="color:#D4CFC6; font-size:.9rem; line-height:1.6; font-weight:300; margin-bottom:1.2rem; text-align:center;">Preencha o formulário abaixo com os seus dados. Avaliaremos o seu caso rapidamente e entraremos em contato para uma orientação especializada.</p>
+
+    <form id="contact-form" action="#" method="POST" style="width:100%; display:flex; flex-direction:column; gap:0.7rem;">
+      <input type="text" name="nome" placeholder="Seu nome" required
+        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
+      <input type="email" name="email" placeholder="Seu email" required
+        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
+      <input type="tel" name="telefone" placeholder="DDD + Telefone" required
+        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s;">
+      <textarea name="mensagem" placeholder="Descreva brevemente o seu caso" rows="3" required
+        style="width:100%; padding:11px 20px; background:#080808; border:1px solid rgba(201,168,76,.2); border-radius:4px; color:#F5F0E8; font-family:inherit; font-size:15px; outline:none; text-align:center; transition:border-color .3s; resize:vertical;"></textarea>
+      <button type="submit" class="btn-primary" style="width:100%; justify-content:center; text-align:center; display:flex; align-items:center; margin-top:0.3rem;">QUERO UMA AVALIAÇÃO!</button>
+    </form>
+  </div>
+</section>
+
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
@@ -61,55 +82,27 @@
       <div class="hero-stat"><strong>8+</strong><span>Anos de Experiência</span></div>
     </div>
   </div>
-  <div class="hero-right">
-    <img class="hero-img" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa - Advogada" loading="eager">
-    <div class="hero-img-overlay"></div>
-  </div>
 </section>
 
-
-
-<!-- VIDEO -->
-<section id="video">
-  <div class="video-header">
-    <div class="section-label reveal">Apresentação</div>
-    <h2 class="section-title reveal stagger-1">Conheça a <em>Dra. Fernanda Costa</em></h2>
-    <p class="reveal stagger-2" style="color:var(--text);font-size:.95rem;line-height:1.8;font-weight:300;margin-top:1rem">Uma advogada que une técnica jurídica de alto nível com atendimento verdadeiramente humanizado.</p>
-  </div>
-  <div class="video-wrapper reveal">
-    <video class="video-thumb" controls style="filter: brightness(1); border-radius: 4px;">
-      <source src="video%20fernanda.mp4" type="video/mp4">
-      Seu navegador não suporta a tag de vídeo.
-    </video>
-  </div>
-</section>
-
-<!-- CONTACT FORM -->
-<section id="contact">
-  <div class="contact-container">
-    <div class="contact-left reveal-left">
-      <div class="section-label">Atendimento</div>
-      <h2 class="section-title">Fale com a nossa <em>Equipe</em></h2>
-      <p class="contact-desc">Preencha o formulário abaixo com os seus dados. Avaliaremos o seu caso rapidamente e entraremos em contato para uma orientação especializada.</p>
-      
-      <form class="contact-form" action="#" method="POST">
-        <div class="form-group">
-          <input type="text" name="nome" placeholder="Seu nome" required>
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Seu email" required>
-        </div>
-        <div class="form-group">
-          <input type="tel" name="telefone" placeholder="DDD + Telefone" required>
-        </div>
-        <div class="form-group">
-          <textarea name="mensagem" placeholder="Descreva brevemente o seu caso" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; text-align: center;">QUERO UMA AVALIAÇÃO!</button>
-      </form>
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img-wrap reveal-left">
+      <img class="about-img" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" loading="lazy">
+      <div class="about-img-overlay"></div>
+      <div class="about-gold-bar"></div>
     </div>
-    <div class="contact-right reveal-right">
-      <img src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" class="contact-img" loading="lazy">
+    <div class="about-content">
+      <div class="section-label reveal">Sobre a Advogada</div>
+      <h2 class="section-title reveal stagger-1">Dra. <em>Fernanda Costa</em></h2>
+      <p class="about-bio reveal stagger-2">Com mais de 8 anos de experiência dedicados exclusivamente ao Direito Trabalhista e ao Direito do Consumidor, a Dra. Fernanda Costa construiu uma trajetória marcada por resultados concretos e atendimento verdadeiramente humano.</p>
+      <p class="about-bio reveal stagger-3">Acreditamos que cada cliente merece mais do que um advogado — merece um aliado estratégico que compreende sua realidade, defende seus interesses com técnica e luta com determinação pelo que é seu de direito.</p>
+      <div class="about-credentials reveal stagger-4">
+        <div class="credential">Especialista em Direito Trabalhista e Processual do Trabalho</div>
+        <div class="credential">Pós-graduada em Direito do Consumidor</div>
+        <div class="credential">Membro da OAB — Ordem dos Advogados do Brasil</div>
+        <div class="credential">Atendimento em todo o território nacional</div>
+      </div>
     </div>
   </div>
 </section>
@@ -146,26 +139,18 @@
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-img-wrap reveal-left">
-      <img class="about-img" src="assets/imagemdecapa/Fernada.jpeg" alt="Dra. Fernanda Costa" loading="lazy">
-      <div class="about-img-overlay"></div>
-      <div class="about-gold-bar"></div>
-    </div>
-    <div class="about-content">
-      <div class="section-label reveal">Sobre a Advogada</div>
-      <h2 class="section-title reveal stagger-1">Dra. <em>Fernanda Costa</em></h2>
-      <p class="about-bio reveal stagger-2">Com mais de 8 anos de experiência dedicados exclusivamente ao Direito Trabalhista e ao Direito do Consumidor, a Dra. Fernanda Costa construiu uma trajetória marcada por resultados concretos e atendimento verdadeiramente humano.</p>
-      <p class="about-bio reveal stagger-3">Acreditamos que cada cliente merece mais do que um advogado — merece um aliado estratégico que compreende sua realidade, defende seus interesses com técnica e luta com determinação pelo que é seu de direito.</p>
-      <div class="about-credentials reveal stagger-4">
-        <div class="credential">Especialista em Direito Trabalhista e Processual do Trabalho</div>
-        <div class="credential">Pós-graduada em Direito do Consumidor</div>
-        <div class="credential">Membro da OAB — Ordem dos Advogados do Brasil</div>
-        <div class="credential">Atendimento em todo o território nacional</div>
-      </div>
-    </div>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="video-header">
+    <div class="section-label reveal">Apresentação</div>
+    <h2 class="section-title reveal stagger-1" style="font-size:clamp(1.2rem,2vw,1.8rem);max-width:600px;margin:0 auto;line-height:1.4;">Uma advogada que une técnica jurídica de alto nível com atendimento verdadeiramente <em>humanizado.</em></h2>
+  </div>
+  <div class="video-wrapper reveal">
+    <video class="video-thumb" controls style="filter: brightness(1); border-radius: 4px;">
+      <source src="video%20fernanda.mp4" type="video/mp4">
+      Seu navegador não suporta a tag de vídeo.
+    </video>
   </div>
 </section>
 
@@ -263,7 +248,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo"><img src="assets/imagemdecapa/logo.png" alt="Fernanda Costa Advocacia" style="height: 180px; width: auto; display: block;"></div>
+
     <div class="footer-links">
       <a class="wa-link" href="#">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.555 4.122 1.528 5.858L0 24l6.336-1.51A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.002-1.371l-.36-.214-3.722.977.993-3.634-.234-.374A9.773 9.773 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.421 0 9.818 4.396 9.818 9.818 0 5.421-4.397 9.818-9.818 9.818z"/></svg>
