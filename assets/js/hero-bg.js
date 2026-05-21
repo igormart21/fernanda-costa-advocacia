@@ -2,8 +2,8 @@
  * Hero Background — Cinematic Legal Icons Animation
  * Premium dark luxury animated background
  */
-(function() {
-  const canvas = document.getElementById('hero-canvas');
+function createLegalBg(canvasId) {
+  const canvas = document.getElementById(canvasId);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
@@ -367,4 +367,8 @@
   }
 
   draw();
-})();
+}
+
+// Inicializar nos dois canvas
+createLegalBg('contact-canvas');
+createLegalBg('hero-canvas');
