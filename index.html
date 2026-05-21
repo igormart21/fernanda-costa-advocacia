@@ -918,12 +918,12 @@ if (heroVideo && playBtn) {
     heroVideo.controls = true;
     heroVideo.play();
     playBtn.classList.add('hidden');
-    if (videoThumb) videoThumb.style.opacity = '0';
+    if (videoThumb) { videoThumb.style.opacity = '0'; videoThumb.style.pointerEvents = 'none'; }
   });
   heroVideo.addEventListener('ended', () => {
     playBtn.classList.remove('hidden');
     heroVideo.controls = false;
-    if (videoThumb) videoThumb.style.opacity = '1';
+    if (videoThumb) { videoThumb.style.opacity = '1'; videoThumb.style.pointerEvents = 'auto'; }
   });
 }
 
