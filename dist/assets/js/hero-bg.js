@@ -8,15 +8,32 @@ function createLegalBg(canvasId) {
   const ctx = canvas.getContext('2d');
 
   let mouse = { x: 0, y: 0 };
-  let W, H;
+  let W = 0, H = 0;
 
   // ─── Resize ───────────────────────────────────────────────
   function resize() {
-    W = canvas.width  = canvas.offsetWidth;
-    H = canvas.height = canvas.offsetHeight;
+    const section = canvas.parentElement;
+    W = canvas.width  = section ? section.offsetWidth  : window.innerWidth;
+    H = canvas.height = section ? section.offsetHeight : window.innerHeight;
+    if (!W || !H) {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    // reinicializa poeira com novas dimensões
+    dust.length = 0;
+    for (let i = 0; i < 120; i++) {
+      dust.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.2 + 0.2,
+        vx: (Math.random()-0.5)*0.15,
+        vy: -Math.random()*0.25 - 0.05,
+        alpha: Math.random()*0.25 + 0.05,
+        life: Math.random(),
+      });
+    }
   }
   window.addEventListener('resize', resize);
-  resize();
 
   // ─── Mouse Parallax ───────────────────────────────────────
   document.addEventListener('mousemove', e => {
@@ -250,19 +267,9 @@ function createLegalBg(canvasId) {
     objects[objects.length-1].targetOpacity = objects[objects.length-1].baseOpacity;
   }
 
-  // ─── Cinematic Particles (floating dust) ──────────────────
+  // ─── Cinematic Particles (dust inicializado em resize()) ──
   const dust = [];
-  for (let i = 0; i < 120; i++) {
-    dust.push({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 1.2 + 0.2,
-      vx: (Math.random()-0.5)*0.15,
-      vy: -Math.random()*0.25 - 0.05,
-      alpha: Math.random()*0.25 + 0.05,
-      life: Math.random(),
-    });
-  }
+  resize(); // inicializa W, H e preenche o dust
 
   // ─── Main Draw Loop ───────────────────────────────────────
   let t = 0;
