@@ -14,20 +14,20 @@ a{text-decoration:none;color:inherit}
 .contact-bg-icons{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;}
 .contact-bg-icons i{
   position:absolute;
-  color:rgba(198,161,91,0.10);
+  color:rgba(198,161,91,0.28);
   animation-name:floatIcon;
   animation-timing-function:ease-in-out;
   animation-iteration-count:infinite;
   animation-direction:alternate;
-  filter:blur(0.5px);
-  text-shadow:0 0 20px rgba(198,161,91,0.15);
+  filter:blur(0.3px);
+  text-shadow:0 0 30px rgba(198,161,91,0.35);
 }
 @keyframes floatIcon{
-  0%  {transform:translateY(0px)   rotate(0deg);   opacity:.07;}
-  25% {transform:translateY(-18px) rotate(3deg);   opacity:.12;}
-  50% {transform:translateY(-8px)  rotate(-2deg);  opacity:.09;}
-  75% {transform:translateY(-22px) rotate(4deg);   opacity:.13;}
-  100%{transform:translateY(-5px)  rotate(-1deg);  opacity:.08;}
+  0%  {transform:translateY(0px)   rotate(0deg);   opacity:.20;}
+  25% {transform:translateY(-18px) rotate(3deg);   opacity:.32;}
+  50% {transform:translateY(-8px)  rotate(-2deg);  opacity:.25;}
+  75% {transform:translateY(-22px) rotate(4deg);   opacity:.35;}
+  100%{transform:translateY(-5px)  rotate(-1deg);  opacity:.22;}
 }
 
 /* NAV */
